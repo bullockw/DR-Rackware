@@ -16,3 +16,5 @@ a.	rackware-rmm
     a.	https://objectstorage.us-phoenix-1.oraclecloud.com/p/W_bmd4vwKpmm1wsrbgvXzKpW6SR6C7JCbKII2QCLDVs/n/a501635/b/templates/o/RMM-7-3-0-493-base
 10.	In the Image Type section, select the format of the image.
     a.	OCI
+    
+    ![](./screenshots/rmm-import.png)
