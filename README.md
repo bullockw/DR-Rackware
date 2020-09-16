@@ -13,6 +13,6 @@ In the Create in Compartment list, select the compartment that you want to impor
 a.	rackware-rmm
 8.	Select  Linux for the Operating System:
 9.	Select “Import from an Object Storage URL”, then cut/paste the following into the Object Storage URL field
-  a.	https://objectstorage.us-phoenix-1.oraclecloud.com/p/W_bmd4vwKpmm1wsrbgvXzKpW6SR6C7JCbKII2QCLDVs/n/a501635/b/templates/o/RMM-7-3-0-493-base
+    a.	https://objectstorage.us-phoenix-1.oraclecloud.com/p/W_bmd4vwKpmm1wsrbgvXzKpW6SR6C7JCbKII2QCLDVs/n/a501635/b/templates/o/RMM-7-3-0-493-base
 10.	In the Image Type section, select the format of the image.
-  a.	OCI
+    a.	OCI
