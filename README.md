@@ -20,7 +20,7 @@ In the Create in Compartment list, select the compartment that you want to impor
     ![](./screenshots/rmm-import.png)
 11.	Click Import Image.  
 
-After you click Import Image the imported image will show in the Custom Images list for the compartment, with a status of IMPORTING. To track the progress of the operation, you can monitor the associated work request.  For more information, see Using the Console to View Work Requests.  
+After you click Import Image the imported image will show in the Custom Images list for the compartment, with a status of IMPORTING. To track the progress of the operation, you can monitor the associated work request.  For more information, see [Using the Console to View Work Requests](https://docs.cloud.oracle.com/en-us/iaas/Content/General/Concepts/workrequestoverview.htm#viewingwr).  
 
 When the import completes successfully, the status changes to AVAILABLE. This will take several minutes.    If the status does not change, or no entry appears in the Custom Images list, the import failed. If the import failed, ensure you have read access to the Object Storage object.rac
 
@@ -30,5 +30,5 @@ Now we will need to create an instance from this custom image and modify the ins
  ![](./screenshots/create-instance.png)
 Enter the name you wish to call the instance, e.g. “RMM”.   Give the instance a shape appropriate for your deployment.   
 2.   In the ‘Add SSH Keys’ either upload your ssh key to connect to the instance after it is created or paste the key contents
- ![](./screentshots/add-ssh-keys.png)
+    ![](./screenshots/add-ssh-keys.png)
 
