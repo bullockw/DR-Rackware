@@ -1,4 +1,4 @@
-# DR-Rackware
+# DR Rackware Deployment
 ## Step 1: Import RMM Image from Rackware
 1.	Log in to your OCI account
 2.	Open the navigation menu. Under Core Infrastructure, go to Compute
@@ -28,7 +28,12 @@ When the import completes successfully, the status changes to AVAILABLE. This wi
 Now we will need to create an instance from this custom image and modify the instance.    
 1.	On the Custom Images screen, click on the three dots in the row of rackware-rmm and select ‘Create Instance’
  ![](./screenshots/create-instance.png)
-Enter the name you wish to call the instance, e.g. “RMM”.   Give the instance a shape appropriate for your deployment.   
+Enter the name you wish to call the instance, e.g. “RMM”.   Give the instance a shape appropriate for your deployment. 
+
 2.   In the ‘Add SSH Keys’ either upload your ssh key to connect to the instance after it is created or paste the key contents
     ![](./screenshots/add-ssh-keys.png)
 
+## Step 3: Configure Rackware Components
+Use the following **[guide](https://www.rackwareinc.com/rackware-rmm-oracle-marketplace-dr-march-2020)** to complete the Rackware deployment configuration. (Use the passthrough method)
+
+## Step 4: 
