@@ -16,4 +16,23 @@
 ## Step 2: Configure Rackware Components
 Use the following **[guide](https://www.rackwareinc.com/rackware-rmm-oracle-marketplace-dr-march-2020)** to complete the Rackware deployment configuration. (Use the passthrough method)
 
-## Step 3: Connect to standby database
+## Step 3: Connect to the Backup database
+1. Start an ssh connection to the newly created instance.
+2. Navigate to the root compartment and edit the *defaults.xml* file
+```
+opc@<target-machine>$ sudo su -
+root@<target-machine>$ vi /home/oracle/conf/ords/defaults.xml
+```
+3. Change the db.hostname entry to relfect the IP of the backup database
+![](./screenshots/defaults-db.PNG)
+
+4. Update the db.hostname in *ords_params.properties* file to reflect the IP of the backup database
+```
+root@<target-machine>$ vi /home/oracle/params/ords_params.properties
+```
+![](./screenshots/params-db.PNG)
+5. Start the ORDS server on the target machine
+```
+root@<target-machine>$ sudo su - oracle
+oracle@<target-machine>$ ./start_ords.sh
+```
