@@ -1,8 +1,8 @@
 # DR Rackware Deployment
 ## Step 1: Import RMM Image from Rackware
-1.	Navigate to [Oracle Marketplace](https://cloudmarketplace.oracle.com/marketplace/en_US/homePage.jspx)
+1.	Navigate to <a href="https://cloudmarketplace.oracle.com/marketplace/en_US/homePage.jspx" target="_blank">Oracle Marketplace</a>[Oracle Marketplace](https://cloudmarketplace.oracle.com/marketplace/en_US/homePage.jspx)
 2.	Search "Rackware" and select the "Rackware Migration Manager (RMM)
-![](./screenshots/rmm-market.png)
+![](./screenshots/rmm-market.PNG)
 3.	Click "Get App" and sign into your OCI Console
 ![](./screenshots/oci-sign.png)
 4.	Launch the instance in the target compartment (This should be the same compartment as the one that will contain the instances of the migrated servers.)
