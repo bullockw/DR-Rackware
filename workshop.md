@@ -61,6 +61,28 @@ We now have an APEX application that accesses the database to be replicated usin
 ## Section 3: Configure the RackWare Migration Components
 Use the following **[guide](https://www.rackwareinc.com/rackware-rmm-oracle-marketplace-dr-march-2020)** to complete the RackWare deployment configuration. (Use the passthrough method)
 
+**After you have completed the RackWare guide you must make a DR policy in RackWare to keep the source & target machines synced.**
+1. Start by navigating to the RackWare GUI and loging in with your RackWare admin credentials.
+![](./screenshots/gui.PNG)  
+
+2.Under **DR** on the left-hand side select **Policies** and click the **+** button.
+![](./screenshots/dr-pol.PNG)
+
+3. Enter a name and a frequency for syncing your machines. The rest of the fields are optional. Click **Create**.
+![](./screenshots/active.PNG)
+
+4. From the RackWare GUI, locate the wave you replicated and click the blue name.
+![](./screenshots/rack-wave.PNG)
+
+5. Click the blue ***No Policy*** button right of the DR label
+![](./screenshots/no-pol.PNG)
+
+6. Select the DR Policy you just created from the dropdown and click Assign Policy.
+![](./screenshots/assign.PNG)
+
+7. Use the left & right arrows to preform Failover & Fallback.
+![](./screenshots/failfall.PNG)
+
 ## Section 4: Connect the new instance to the Backup database
 1. Start an ssh connection to the newly created instance.
 2. Navigate to the root compartment and edit the *defaults.xml* file
