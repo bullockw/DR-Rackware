@@ -16,7 +16,7 @@
 ## Step 2: Configure Rackware Components
 Use the following **[guide](https://www.rackwareinc.com/rackware-rmm-oracle-marketplace-dr-march-2020)** to complete the Rackware deployment configuration. (Use the passthrough method)
 
-## Step 3: Connect to the Backup database
+## Step 3: Connect the new instance to the Backup database
 1. Start an ssh connection to the newly created instance.
 2. Navigate to the root compartment and edit the *defaults.xml* file
 ```
@@ -36,3 +36,16 @@ root@<target-machine>$ vi /home/oracle/params/ords_params.properties
 root@<target-machine>$ sudo su - oracle
 oracle@<target-machine>$ ./start_ords.sh
 ```
+
+## Step 4: Conduct the failover operation to activate the backup database
+
+1. Navigate to the standby database
+![](./screenshots/db-nav.PNG)
+2. Click the database name under the backup DB System
+![](./screenshots/db-name.PNG)
+3. Under **Resources** on the left, choose Data Guard Associations. Click the three dots on the right and select **Failover**
+![](./screenshots/failover.PNG)
+4. Enter the database password and click OK. The failover operation will take a few minutes to complete.
+![](./screenshots/db-pass.PNG)
+5. Navigate back to the StandbyDatabase DB system and look at the Peer Role under Data Guard Associations. It shows Disabled Standby which also reaffirms that the failover was successful.
+![](./screenshots/pr-role.PNG)
