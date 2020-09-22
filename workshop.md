@@ -81,7 +81,7 @@ Use the following **[guide](https://www.rackwareinc.com/rackware-rmm-oracle-mark
 ![](./screenshots/assign.PNG)
 
 7. Use the left & right arrows to preform Failover & Fallback.
-![](./screenshots/failfall.PNG)
+![](./screenshots/failfall.PNG)  
 
 ## Section 4: Connect the new instance to the Backup database
 1. Start an ssh connection to the newly created instance.
