@@ -22,8 +22,8 @@ Welcome to this workshop where we will deploy the RackWare Migration Manager (RM
 5. Add the following settings on the "Identify Administrator" page:
     - **Administrator Username:** (Choose a username e.g. "admin")
     - **Administrator password:** (Choose a password that conforms to the database password constraints)
-    - First Name:
-    - Last Name:
+    - First Name: *Optional*
+    - Last Name: *Optional*
     - **Email:** (Enter a valid email)
 6. Click **Create Workspace** on the confirmation page.
 7. Once the workspace is create log out of the **Administration Services**
@@ -31,13 +31,17 @@ Welcome to this workshop where we will deploy the RackWare Migration Manager (RM
 8. Enter the workspace name created in step 3 and fill in the admin login created in step 5. Click  **Sign In**
 ![](./screenshots/login.PNG)
 9. On the landing page, select **App Gallery**
-![](./screenshots/gallery.PNG)
+![](./screenshots/app-gallery.PNG)
 10. Select the **Sample Database Application** and click **Install App**
 ![](./screenshots/db-app.PNG)
 11. Once installed, click the green play button to run the App.
 ![](./screenshots/run.PNG)
 12. Log in using the same admin credentials created in step 5.
 ![](./screenshots/admin-login.PNG)
+13. Make a change in the application to verify the successful replication later (e.g adding a new product "Hat")
+![](./screenshots/hat.PNG)
+    
+We now have an APEX application that accesses the database to be replicated using RackWare!
     
     
 ## Step 2: Import RMM Image from Rackware
@@ -54,7 +58,7 @@ Welcome to this workshop where we will deploy the RackWare Migration Manager (RM
 7.   In the ‘Add SSH Keys’ either upload your ssh key to connect to the instance after it is created or paste the key contents
     ![](./screenshots/add-ssh-keys.png)
 
-## Step 3: Configure Rackware Components
+## Step 3: Configure the Rackware Migration Components
 Use the following **[guide](https://www.rackwareinc.com/rackware-rmm-oracle-marketplace-dr-march-2020)** to complete the Rackware deployment configuration. (Use the passthrough method)
 
 ## Step 4: Connect the new instance to the Backup database
@@ -72,11 +76,21 @@ root@<target-machine>$ vi /home/oracle/conf/ords/defaults.xml
 root@<target-machine>$ vi /home/oracle/params/ords_params.properties
 ```
 ![](./screenshots/params-db.PNG)
-5. Start the ORDS server on the target machine
+5. Start the ORDS server on the target machine (You must complete this step after each sync)
 ```
 root@<target-machine>$ sudo su - oracle
 oracle@<target-machine>$ ./start_ords.sh
 ```
+6. Create a .txt file with the following two lines and save to your local machine:
+![](./screenshots/excl.PNG)
+7. From the RackWare GUI, locate the wave you replicated and click the blue name.
+![](./screenshots/rack-wave.PNG)
+8. Click the blue edit box on the row of your host machine.
+![](./screenshots/edit.PNG)
+9. Under **Sync Options**, select the **Browse** button under **Upload local File** & add the .txt file created in step 6. Click **Modify**
+![](./screenshots/sync.PNG)
+*(This will make sure the new instance points to the backup database after every sync)*
+
 
 ## Step 5: Conduct the failover operation to activate the backup database
 
@@ -91,4 +105,4 @@ oracle@<target-machine>$ ./start_ords.sh
 5. Navigate back to the StandbyDatabase DB system and look at the Peer Role under Data Guard Associations. It shows Disabled Standby which also reaffirms that the failover was successful.
 ![](./screenshots/pr-role.PNG)
 
-## Step 6: 
+## Step 6: Verify the APEX application changes in the new Instance
