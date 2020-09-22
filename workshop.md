@@ -1,4 +1,4 @@
-# DR Rackware Deployment
+DR RackWare Deployment on OCI
 
 ## Introduction
 Welcome to this workshop where we will deploy the RackWare Migration Manager (RMM) on OCI as a Disaster Recovery solution.
@@ -53,13 +53,13 @@ We now have an APEX application that accesses the database to be replicated usin
 4.	Launch the instance in the target compartment (This should be the same compartment as the one that will contain the instances of the migrated servers.)
 ![](./screenshots/launch.png)
 5.	Enter a Name for the instance.\
-    a.	dr_rackware_rmm
+    a.	e.g. dr_rackware_rmm
 6.	Give the instance a shape appropriate for your deployment.
 7.   In the ‘Add SSH Keys’ either upload your ssh key to connect to the instance after it is created or paste the key contents
     ![](./screenshots/add-ssh-keys.png)
 
-## Section 3: Configure the Rackware Migration Components
-Use the following **[guide](https://www.rackwareinc.com/rackware-rmm-oracle-marketplace-dr-march-2020)** to complete the Rackware deployment configuration. (Use the passthrough method)
+## Section 3: Configure the RackWare Migration Components
+Use the following **[guide](https://www.rackwareinc.com/rackware-rmm-oracle-marketplace-dr-march-2020)** to complete the RackWare deployment configuration. (Use the passthrough method)
 
 ## Section 4: Connect the new instance to the Backup database
 1. Start an ssh connection to the newly created instance.
@@ -116,4 +116,4 @@ oracle@<target-machine>$ ./start_ords.sh
 5. Navigate to the **Products** using the shopping cart icon on the left to verify the "Hat" product was added.
 ![](./screenshots/hat2.PNG)
     
-**Congratulations! If you see the change reflected in the new instance, you have successfully created a Disaster Recovery setup using RackWare on OCI!
+**Congratulations! If you see the change reflected in the new instance, you have successfully created a Disaster Recovery setup using RackWare on OCI!**
