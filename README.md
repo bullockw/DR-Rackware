@@ -8,7 +8,7 @@ Welcome to this workshop where we will deploy the RackWare Migration Manager (RM
 - Replicate APEX instances from source machines to autoprovision backup instances
 - Perform a failover operation to simulate a DR scenario
 
-## Step 1: Create an APEX Workspace & Sample Application in the source instance
+## Section 1: Create an APEX Workspace & Sample Application in the source instance
 1. Navigate to the APEX instance through a web browser i.e https://<public-ip>:8888/ords/<database-conection> and select **Administration Services** from the bottom of the page.
 ![](./screenshots/apex-admin.PNG)
 2. Login using the username *admin* and the database admin password. If prompted, reset the password upon login. Once logged in select **Create Workspace**
@@ -44,7 +44,7 @@ Welcome to this workshop where we will deploy the RackWare Migration Manager (RM
 We now have an APEX application that accesses the database to be replicated using RackWare!
     
     
-## Step 2: Import RMM Image from Rackware
+## Section 2: Import RMM Image from Rackware
 1.	Navigate to <a href="https://cloudmarketplace.oracle.com/marketplace/en_US/homePage.jspx" target="_blank">Oracle Marketplace</a>
 2.	Search "RackWare" and select the "RackWare Migration Manager (RMM)"
 ![](./screenshots/rmm-market.PNG)
@@ -58,10 +58,10 @@ We now have an APEX application that accesses the database to be replicated usin
 7.   In the ‘Add SSH Keys’ either upload your ssh key to connect to the instance after it is created or paste the key contents
     ![](./screenshots/add-ssh-keys.png)
 
-## Step 3: Configure the Rackware Migration Components
+## Section 3: Configure the Rackware Migration Components
 Use the following **[guide](https://www.rackwareinc.com/rackware-rmm-oracle-marketplace-dr-march-2020)** to complete the Rackware deployment configuration. (Use the passthrough method)
 
-## Step 4: Connect the new instance to the Backup database
+## Section 4: Connect the new instance to the Backup database
 1. Start an ssh connection to the newly created instance.
 2. Navigate to the root compartment and edit the *defaults.xml* file
 ```
@@ -76,7 +76,7 @@ root@<target-machine>$ vi /home/oracle/conf/ords/defaults.xml
 root@<target-machine>$ vi /home/oracle/params/ords_params.properties
 ```
 ![](./screenshots/params-db.PNG)
-5. Start the ORDS server on the target machine (You must complete this step after each sync)
+5. Start the ORDS server on the target machine *(You must complete this step after each sync)*
 ```
 root@<target-machine>$ sudo su - oracle
 oracle@<target-machine>$ ./start_ords.sh
@@ -92,7 +92,7 @@ oracle@<target-machine>$ ./start_ords.sh
 *(This will make sure the new instance points to the backup database after every sync)*
 
 
-## Step 5: Conduct the failover operation to activate the backup database
+## Section 5: Conduct the failover operation to activate the backup database
 
 1. Navigate to the standby database
 ![](./screenshots/db-nav.PNG)
@@ -105,4 +105,15 @@ oracle@<target-machine>$ ./start_ords.sh
 5. Navigate back to the StandbyDatabase DB system and look at the Peer Role under Data Guard Associations. It shows Disabled Standby which also reaffirms that the failover was successful.
 ![](./screenshots/pr-role.PNG)
 
-## Step 6: Verify the APEX application changes in the new Instance
+## Section 6: Verify the APEX application changes in the new Instance
+1. Navigate to the new APEX instance through a web browser i.e. https://<target-public-ip>:8888/ords/drpdb
+2. Login with the same workspace & admin credentials created in step 3 & 5 **Section 1**
+![](./screenshots/login.PNG)
+3. Select the **App Builder** icon.
+![](./screenshots/app-build.PNG)
+4. Run the **Sample Database Application** by pressing the play button next when you hover over the applications.
+![](./screenshots/hover.PNG)
+5. Navigate to the **Products** using the shopping cart icon on the left to verify the "Hat" product was added.
+![](./screenshots/hat2.PNG)
+    
+**Congratulations! If you see the change reflected in the new instance, you have successfully created a Disaster Recovery setup using RackWare on OCI!
