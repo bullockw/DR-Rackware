@@ -15,16 +15,16 @@ Welcome to this workshop where we will deploy the RackWare Migration Manager (RM
 ![](./screenshots/cr-wrkspc.PNG)
 3. Give the workspace a name (e.g "DEV") and click Next.
 4. Add the following settings on the "Identify Schema" page:
-    -**Re-use existing schema?:** No
-    -**Schema Name:** (Choose any name e.g "DEV")
-    -**Schema Password:** (Choose a password that conforms to the database password constraints)
-    -**Space Quota (MB):** 100
+    - **Re-use existing schema?:** No
+    - **Schema Name:** (Choose any name e.g "DEV")
+    - **Schema Password:** (Choose a password that conforms to the database password constraints)
+    - **Space Quota (MB):** 100
 5. Add the following settings on the "Identify Administrator" page:
-    -**Administrator Username:** (Choose a username e.g. "admin")
-    -**Administrator password:** (Choose a password that conforms to the database password constraints)
-    -First Name:
-    -Last Name:
-    -**Email:** (Enter a valid email)
+    - **Administrator Username:** (Choose a username e.g. "admin")
+    - **Administrator password:** (Choose a password that conforms to the database password constraints)
+    - First Name:
+    - Last Name:
+    - **Email:** (Enter a valid email)
 6. Click **Create Workspace** on the confirmation page.
 7. Once the workspace is create log out of the **Administration Services**
 ![](./screenshots/logout.PNG)
